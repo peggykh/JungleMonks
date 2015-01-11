@@ -17,5 +17,8 @@ Features
 • Sortable  by  name,  name  of  the  best  friend  and  number  of  friends  
 • Pagination  
 
+To run the app on localhost:
+Install virtualenv on your local machine
+Use 'python run.py runserver' 
 
 
