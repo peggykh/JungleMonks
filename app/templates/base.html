@@ -1,0 +1,112 @@
+<html>
+<head>
+	<title>{% if title %}
+			{{title}} |
+			{% endif %}
+             JungleMonks</title> 
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="../static/img/faviconn.ico" sizes="32X32" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<script src="/static/css/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+<body>
+
+	<div id="bodyAll">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li id="logo">
+						<a href="{{ url_for('home') }}">
+							<span id="globe"class="glyphicon glyphicon-home"></span>
+							Home
+						</a>
+					</li>
+					<li id="logo">
+						<a href="{{ url_for('new') }}">
+							<span id="globe"class="glyphicon glyphicon-plus"></span>
+							Add Monkey
+						</a>
+					</li>
+					<li>
+						<a href="{{ url_for('user',page = '1', sort = 'normal', monkey = monkey) }}">
+							<span class="glyphicon glyphicon-tree-deciduous"></span>
+							Jungle
+						</a>
+					</li>
+					{% if current_user.is_authenticated() %}
+					<li>
+						<a href="#">
+							<span class="glyphicon glyphicon-user"></span>
+							{{g.user.name.capitalize()}}
+						</a>
+					</li>
+					{% endif %}
+
+                            {% if current_user.is_authenticated() %}
+					<li>
+						<a href="{{url_for('logout')}}">
+							<span class="glyphicon glyphicon-log-out"></span>
+							Logout
+						</a>
+					</li>
+					{% else %}
+					<li>
+						<a href="{{url_for('login')}}">
+							<span class="glyphicon glyphicon-log-in"></span>
+							Login
+						</a>
+					</li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid maincont" >
+		<div class="col-md-10 col-md-offset-1 contentpart ">
+			{% with messages = get_flashed_messages() %}
+            {% if messages %}
+			<div id="messages" class="alert alert-warning alert-dismissable">
+				<button type="button" class="close" data-dismiss="alert">&times</button>
+				<ul>
+					{% for messa in messages %}
+					<li>{{ messa }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+            {% endwith %}
+{% block content %}
+{% endblock %}
+		</div>
+	</div>
+
+	<div class= "navbar navbar-inverse navbar-fixed-bottom">
+		<div class="container">
+			<div id="social">
+				<a class="btn nohover pull-left" href="#">
+					<span class="social-sprite twitter">&nbsp;</span>
+					Follow Us on Twitter
+				</a>
+				<a class="btn nohover pull-right" href="https://www.facebook.com/pegah.khast">
+					<span class="social-sprite facebook">&nbsp;</span>
+					Like Us on Facebook
+				</a>
+			</div>
+			<p class="text-center" >
+				© 2015 | JugleMonks by
+				<a href="#">PegDesign</a>
+
+			</p>
+		</div>
+	</div>
+
+</body>
+</html>

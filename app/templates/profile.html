@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+  {% block content %}
+<div class="jumbotron">
+	<div class="row">
+		<div class="col-md-8">
+
+			<h2>Monkey Profile</h2> <strong>Name:</strong>
+
+				{{user.name.capitalize()}}
+			<br> <strong>Email:</strong>
+				{{user.email }}
+			<br>
+			<strong>Age:</strong>
+				{{user.age}}
+			<br>
+				{{ user.friends.count() }} Friends
+			<br>
+				{% for friend in user.is_friend %}
+				{{ friend.name.capitalize() }} is friend
+			<br>
+				{%endfor%}
+				{{ user.is_bestfriend.count() }}Best Friend
+			<br>
+				{% for friend in user.is_bestfriend %}
+				{{ friend.name.capitalize() }} is Best friend
+			<br>{%endfor%}</div>
+		</div>
+
+		<span class="spanFormat">
+			<form action="{{url_for('edit', id = user.id)}}" method='post' >
+				<input class="btn btn-default" type="submit" value="Edit"></form>
+		</span>
+		<span class="spanFormat1">
+			<a href="{{ url_for('delete', id= user.id) }}" >
+				<input class="btn btn-default" type="submit" value="Delete" class="btn" ></a>
+
+		</span>
+	
+</div>
+{% endblock %}
+
+			
+			
