@@ -2,14 +2,14 @@
 A small app with Flask that show Users and you can add new User or delete/ edit them. 
 
 Technologies
-    Flask
-    SQLAlchemy
-    PostgreSQL
-    Git + Github
-    WTForms
-    Heroku
-    Bootstrap
-    pytest
+ • Flask
+ • SQLAlchemy
+ • PostgreSQL
+ • Git + Github
+ • WTForms
+ • Heroku
+ • Bootstrap
+ • pytest
     
 Features  
 • Add  user 
