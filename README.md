@@ -20,5 +20,6 @@ Features
 To run the app on localhost:
 Install virtualenv on your local machine
 Use 'python run.py runserver' 
+http://jungle-monkeys.herokuapp.com/
 
 
